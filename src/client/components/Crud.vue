@@ -19,10 +19,10 @@
           >ENVIAR</button>
           <button
             v-else
-            class="btn btn-info btn-block mt-3"
+            class="btn btn-success btn-block mt-3"
             type="button"
             v-on:click="actualizar()"
-          >Actualzar</button>
+          >ACTUALIZAR</button>
         </form>
         <table class="table">
           <thead>
@@ -103,7 +103,21 @@ export default {
         this.registroNombre = registroNombre;
         this.registroTelefono = registroTelefono;
         this.editar = true
+    },
+    actualizar(){
+        axios.put(`/registro/${this.id}`,{
+            nombre:this.registroNombre,
+            telefono:this.registroTelefono
+        })
+            .then((res=>{
+                this.registroNombre = ''
+                this.registroTelefono = ''
+                this.editar = false
+                this.obtenerRegistros()
+            }))
+            .catch(e=>console.log(e))
     }
+
   }
 };
 </script>
