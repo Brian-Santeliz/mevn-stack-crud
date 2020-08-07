@@ -76,6 +76,10 @@ export default {
         .catch(e => console.log(e));
     },
     agregarRegistro() {
+      if(this.registroNombre === '' || this.registroTelefono === ''){
+          alert('Todos los campos son obligatorios')
+          return
+      }
       axios
         .post("/registro", {
           nombre: this.registroNombre,
@@ -87,6 +91,7 @@ export default {
           this.obtenerRegistros();
         })
         .catch(e => console.log(e));
+
     },
     eliminarRegistro(id) {
       axios
