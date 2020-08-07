@@ -143,6 +143,10 @@ export default {
     },
     actualizar() {
       axios
+	if (this.registroNombre === "" || this.registroTelefono === "") {
+	        alert("Todos los campos son obligatorios");
+	        return;
+    	  }
         .put(`/registro/${this.id}`, {
           nombre: this.registroNombre,
           telefono: this.registroTelefono
