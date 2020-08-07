@@ -85,7 +85,18 @@ export default {
           this.registroNombre = "";
           this.registroTelefono = "";
           this.obtenerRegistros();
-        });
+        })
+        .catch(e => console.log(e));
+    },
+    eliminarRegistro(id) {
+      axios
+        .delete(`/registro/${id}`)
+        .then(res => {
+          this.registroNombre = "";
+          this.registroTelefono = "";
+          this.obtenerRegistros();
+        })
+        .catch(e => console.log(e));
     }
   }
 };
