@@ -97,6 +97,12 @@ export default {
           this.obtenerRegistros();
         })
         .catch(e => console.log(e));
+    },
+    editarRegistro(registroNombre, registroTelefono, id){
+        this.id = id;
+        this.registroNombre = registroNombre;
+        this.registroTelefono = registroTelefono;
+        this.editar = true
     }
   }
 };
