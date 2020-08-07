@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <h1>CRUD VUEJS</h1>
-        <form v-on:submit.prevent="agregarRegistro">
+        <form @submit.prevent="agregarRegistro">
           <div class="form-group">
             <label for="nombre">Escribe tu nombre:</label>
             <input type="text" name id="nombre" class="form-control" v-model="registroNombre" />
@@ -21,7 +21,7 @@
             v-else
             class="btn btn-success btn-block mt-3"
             type="button"
-            v-on:click="actualizar()"
+            @click="actualizar()"
           >ACTUALIZAR</button>
         </form>
         <table class="table">
@@ -41,10 +41,10 @@
             <td class="text-left">{{registro.telefono}}</td>
             <td class="text-right">
               <button
-                v-on:click="editarRegistro(registro.nombre, registro.telefono, registro.id)"
+                 @click="editarRegistro(registro.nombre, registro.telefono, registro.id)"
                 class="btn btn-info"
               >Editar</button>
-              <button v-on:click="eliminarRegistro(registro.id)" class="btn btn-danger">Eliminar</button>
+              <button  @click="eliminarRegistro(registro.id)" class="btn btn-danger">Eliminar</button>
             </td>
           </tr>
         </table>
